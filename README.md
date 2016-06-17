@@ -16,6 +16,20 @@ Take a look at this simple, yet - [beautiful example](https://dvLden.github.io/V
 #### How to use it
 You may use Vidage on one of the following ways:
 
+##### Add boilerplate/template in your HTML
+```html
+<div class="Vidage">
+    <div class="Vidage__image"></div>
+
+    <video id="VidageVideo" class="Vidage__video" preload="metadata" loop autoplay muted>
+        <source src="videos/bg.webm" type="video/webm">
+        <source src="videos/bg.mp4" type="video/mp4">
+    </video>
+
+    <div class="Vidage__backdrop"></div>
+</div>
+```
+
 ##### Regular way
 ```html
 <script src="scripts/Vidage.min.js"></script>
