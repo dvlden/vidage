@@ -20,12 +20,13 @@ You may use Vidage on one of the following ways:
 ```html
 <script src="scripts/Vidage.min.js"></script>
 <script>
-new Vidage(selector [, helperClass ]);
+    new Vidage(selector [, helperClass ]);
 </script>
 ```
 
 ##### ES6 way
 ```javascript
 import Vidage from './Vidage';
+
 new Vidage(selector [, helperClass ]);
 ```
