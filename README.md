@@ -18,10 +18,10 @@ You may use Vidage on one of the following ways:
 
 ##### Regular way
 ```html
-&lt;script src="scripts/Vidage.min.js"&gt;&lt;/script&gt;
-&lt;script&gt;
+<script src="scripts/Vidage.min.js"></script>
+<script>
 new Vidage(selector [, helperClass ]);
-&lt;/script&gt;
+</script>
 ```
 
 ##### ES6 way
