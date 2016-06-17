@@ -1,11 +1,8 @@
 {
   "name": "vidage",
   "version": "0.1.0",
-  "description": "Your solution to full-screen background video & image combined.",
-  "main": [
-    "src/styles/Vidage.css",
-    "src/scripts/Vidage.js"
-  ],
+  "description": "Your solution to full-screen background video and image combined.",
+  "main": "src/scripts/Vidage.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
