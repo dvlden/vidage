@@ -1,0 +1,104 @@
+/*!
+ * @title:          Vidage
+ * @description:    Your solution to full-screen background video & image combined.
+ * @version:        0.1.0
+ * @author:         dvL-den
+ * @url:            http://dvL-den.net
+ * @license:        MIT License
+ */
+
+///
+// Everything is stored within a single file for convenience
+// Let the Vidage begin... ✌
+///
+
+
+///
+// Vidage variables
+///
+
+// Path where images are stored
+$vdg-images-path: '../images/' !default;
+// Fallback image if video cannot play for a reason
+$vdg-fallback-image: $vdg-images-path + 'bg.jpg' !default;
+// Helper class (read more at line 48)
+$vdg-helper-class: 'Vidage--allow';
+// List of backdrop settings
+$vdg-backdrop: (
+    'bg-color': #383B3D,
+    'bg-image': $vdg-images-path + 'pattern.svg',
+    'opacity': .2
+) !default;
+
+
+///
+// Placeholder for background image and backdrop/overlay
+///
+
+%vdg-background-size {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+///
+// This class helps Vidage to determine when to show and play
+// the video or to hide and pause it and show the image instead
+///
+
+.#{$vdg-helper-class} {
+    .Vidage {
+        &__video {
+            display: block;
+        }
+
+        &__image {
+            display: none;
+        }
+    }
+}
+
+.Vidage {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+
+    &__video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+        display: none;
+    }
+
+    &__image {
+        background: {
+            image: url($vdg-fallback-image);
+            position: center center;
+            repeat: no-repeat;
+            size: cover;
+        }
+        @extend %vdg-background-size;
+    }
+
+    &__backdrop {
+        background: {
+            color: adjust-hue(darken(map-get($vdg-backdrop, 'bg-color'), 12%), 15%);
+            image: url(map-get($vdg-backdrop, 'bg-image'));
+        }
+        opacity: map-get($vdg-backdrop, 'opacity');
+        @extend %vdg-background-size;
+    }
+}
