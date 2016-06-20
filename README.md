@@ -7,6 +7,10 @@
 #### Demo
 Take a look at this simple, yet - [beautiful example](https://dvLden.github.io/Vidage/).
 
+#### CDN JS
+###### Thanks to [PeterDaveHello](https://github.com/PeterDaveHello)
+`https://cdnjs.com/libraries/Vidage`
+
 #### Bower
 `bower install vidage --save`
 
