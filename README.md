@@ -1,15 +1,19 @@
-### Vidage.js
-###### Your solution to Background Video & Image
+### Vidage
+###### Your solution to full-screen background video and image combined.
 ---
 
-**Vidage.js** will automatically hide and pause the video for touch devices and/or small screens (34em) and instead show the fallback image. It determines whether to do that or not, on the `canplay`, `resize` and `orientationchange` _(probably not necessery)_ events. It uses one module as dependency - `lodash/debounce`.
+**Vidage.js** will automatically hide and pause the video for touch devices and/or small screens _(34em)_ and instead show the fallback image. It determines whether to do that or not, on the `canplay`, `resize` and `orientationchange` events. It uses one module as dependency - `lodash/debounce`.
 
-#### Demo
+### Demo
+---
 Take a look at this simple, yet - [beautiful example](https://dvLden.github.io/Vidage/).
 
-#### CDN JS
-###### Thanks to [PeterDaveHello](https://github.com/PeterDaveHello)
+### Install
+---
+
+#### CDN
 `https://cdnjs.com/libraries/Vidage`
+> Thanks to [PeterDaveHello](https://github.com/PeterDaveHello)
 
 #### Bower
 `bower install vidage --save`
@@ -17,8 +21,8 @@ Take a look at this simple, yet - [beautiful example](https://dvLden.github.io/V
 #### NPM
 `npm install vidage --save`
 
-#### How to use it
-You may use Vidage on one of the following ways:
+### How to use
+---
 
 ##### Add boilerplate/template in your HTML
 ```html
@@ -34,6 +38,7 @@ You may use Vidage on one of the following ways:
 </div>
 ```
 
+And then use the script on one of the following ways:
 ##### Regular way
 ```html
 <script src="scripts/Vidage.min.js"></script>
@@ -48,3 +53,17 @@ import Vidage from './Vidage';
 
 new Vidage(selector [, helperClass ]);
 ```
+
+
+**Tested manually through multiple platforms and browsers!**
+
+| <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/chrome/chrome_128x128.png" width="48" height="48" alt="Chrome"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/firefox/firefox_128x128.png" width="48" height="48" alt="Firefox"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/safari/safari_128x128.png" width="48" height="48" alt="Safari"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/opera/opera_128x128.png" width="48" height="48" alt="Opera"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/edge/edge_128x128.png" width="48" height="48" alt="Edge"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/yandex/yandex_128x128.png" width="48" height="48" alt="Yandex"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/internet-explorer/internet-explorer_128x128.png" width="48" height="48" alt="Internet Explorer"> |
+|---|---|---|---|---|---|---|
+| 15+ ✔ | 20+ ✔ | 5.1+ ✔ | 15+ ✔ | 12+ ✔ | 14.12+ ✔ | Noop ✘ |
+
+Unfortunately, I was unable to determine the issue on Internet Explorer. It just shows up the cover image, but never plays the video. :'(
+
+If anyone can track down the issue, I'd appreciate the help!
+
+> <img src="https://avatars0.githubusercontent.com/u/1119453?v=3&s=200" width="38" height="38">
+_Thanks to [BrowserStack](https://www.browserstack.com/) for supporting this open-source project by allowing me to test Vidage!_
