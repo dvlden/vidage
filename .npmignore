@@ -1,2 +1,6 @@
 src/
 gulp/
+gulpfile.babel.js
+bower.json
+.babelrc
+.gitattributes
