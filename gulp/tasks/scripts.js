@@ -28,9 +28,9 @@ export function scriptsTask () {
         .on('error', e => util.log(e))
         .pipe(source('Vidage.js'))
         .pipe(buffer())
-        .pipe(gulp.dest(PATH.dest))
+        // .pipe(gulp.dest(PATH.dest))
         .pipe(stripDebug())
-        .pipe(rename({ suffix: '.min' }))
+        // .pipe(rename({ suffix: '.min' }))
         .pipe(uglify())
         .pipe(notify({
             onLast: true,

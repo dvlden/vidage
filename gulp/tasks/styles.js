@@ -4,7 +4,7 @@ import gulp from 'gulp';
 import util from 'gulp-util';
 import path from 'path';
 import newer from 'gulp-newer';
-import sourcemaps from 'gulp-sourcemaps';
+// import sourcemaps from 'gulp-sourcemaps';
 import sass from 'gulp-sass';
 import cssNano from 'gulp-cssnano';
 import notify from 'gulp-notify';
@@ -18,11 +18,11 @@ const PATH = {
 export function stylesTask () {
     gulp.src(PATH.src)
         .pipe(newer(PATH.dest))
-        .pipe(sourcemaps.init())
+        // .pipe(sourcemaps.init())
         .pipe(sass(config.tasks.styles.sass).on('error', e => util.log(e)))
         .pipe(cssNano(config.tasks.styles.nano))
         .pipe(autoprefixer(config.tasks.styles.autoprefixer))
-        .pipe(sourcemaps.write())
+        // .pipe(sourcemaps.write())
         .pipe(notify({
             onLast: true,
             title: 'Task complete!',

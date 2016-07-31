@@ -8,6 +8,14 @@
 ---
 Take a look at this simple, yet - [beautiful example](https://dvLden.github.io/Vidage/).
 
+### Resources
+---
+Background video, fallback image and pattern overlay – **that were used in example**, are not included for download.
+Use source file written in SASS `src/styles/Vidage.scss` and change desired variables or change specific parts of code that you may not need in your project. If you're not familiar with SASS and would like to edit CSS directly, you can do that too. I strongly suggest using an beautifier _(point 1)_ so that you get clean code ready for changes. Once you're done, I suggest using an CSS Minifier _(point 2)_ to make it one-liner again. You can grab the CSS from `dest/styles/Vidage.css`.
+
+1. [CleanCSS Beautify](http://www.cleancss.com/css-beautify/)
+2. [CleanCSS Minify](http://www.cleancss.com/css-minify/)
+
 ### Install
 ---
 
@@ -25,6 +33,10 @@ Take a look at this simple, yet - [beautiful example](https://dvLden.github.io/V
 ---
 
 ##### Add boilerplate/template in your HTML
+_You don't have to add both `.webm` and `.mp4` formats._
+_But from my personal experiance, leaving `.mp4` as fallback and using `.webm` primarily_
+_Works better and smoother in browsers that supports `.webm` format_
+
 ```html
 <div class="Vidage">
     <div class="Vidage__image"></div>
@@ -38,10 +50,17 @@ Take a look at this simple, yet - [beautiful example](https://dvLden.github.io/V
 </div>
 ```
 
-And then use the script on one of the following ways:
-##### Regular way
+##### Add style in your `<head />` _(make sure that file path is correct)_
+
 ```html
-<script src="scripts/Vidage.min.js"></script>
+<link href="styles/Vidage.css" rel="stylesheet" />
+```
+
+##### And then use the script on one of the following ways _(make sure that file path is correct)_
+
+###### Regular way
+```html
+<script src="scripts/Vidage.js"></script>
 <script>
     new Vidage(selector [, helperClass ]);
 </script>
@@ -61,7 +80,7 @@ new Vidage(selector [, helperClass ]);
 |---|---|---|---|---|---|---|
 | 15+ ✔ | 20+ ✔ | 5.1+ ✔ | 15+ ✔ | 12+ ✔ | 14.12+ ✔ | Noop ✘ |
 
-Unfortunately, I was unable to determine the issue on Internet Explorer. It just shows up the cover image, but never plays the video. :'(
+Unfortunately, I was unable to determine the issue on Internet Explorer. It just shows up the cover image, but never plays the video. :cry:
 
 If anyone can track down the issue, I'd appreciate the help!
 

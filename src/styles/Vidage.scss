@@ -1,11 +1,3 @@
-/*!
- * @title:          Vidage
- * @description:    Your solution to full-screen background video and image combined.
- * @author:         dvL-den
- * @url:            http://dvL-den.net
- * @license:        MIT License
- */
-
 ///
 // Everything is stored within a single file for convenience
 // Let the Vidage begin... ✌
@@ -21,7 +13,7 @@ $vdg-images-path: '../images/' !default;
 // Fallback image if video cannot play for a reason
 $vdg-fallback-image: $vdg-images-path + 'bg.jpg' !default;
 // Helper class (read more at line 48)
-$vdg-helper-class: 'Vidage--allow';
+$vdg-helper-class: 'Vidage--allow' !default;
 // List of backdrop settings
 $vdg-backdrop: (
     'bg-color': #383B3D,
