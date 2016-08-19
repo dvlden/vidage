@@ -58,11 +58,13 @@ _Works better and smoother in browsers that supports `.webm` format_
 
 ##### And then use the script on one of the following ways _(make sure that file path is correct)_
 
+If you want to delete `<video>` element on mobile devices - provide deleteVideo flag setted to `true`
+
 ###### Regular way
 ```html
 <script src="scripts/Vidage.js"></script>
 <script>
-    new Vidage(selector [, helperClass ]);
+    new Vidage(selector [, helperClass ][, deleteVideo]);
 </script>
 ```
 
@@ -70,7 +72,7 @@ _Works better and smoother in browsers that supports `.webm` format_
 ```javascript
 import Vidage from './Vidage';
 
-new Vidage(selector [, helperClass ]);
+new Vidage(selector [, helperClass ][, deleteVideo]);
 ```
 
 
