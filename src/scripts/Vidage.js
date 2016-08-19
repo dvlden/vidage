@@ -1,16 +1,25 @@
 import _debounce from 'lodash/debounce';
 
 export default class Vidage {
-    constructor (selector, helperClass = 'Vidage--allow') {
+    constructor (selector, helperClass = 'Vidage--allow', deleteVideo = false) {
         // Store the name of the plugin, for future error handling.
         this._name = this.constructor.name;
 
         // Validate given selector and handle errors
         this.element = this.validateSelector(selector);
-
+        
+        // If we have just 2 params: (selector, deleteVideo)
+        if (typeof helperClass === 'boolean') {
+            deleteVideo = helperClass;
+            helperClass = 'Vidage--allow';
+        }
+        
+        // Do we need to delete <video> from page
+        this.deleteVideo = deleteVideo;
+        
         // Helper class for detection use through CSS
         this.helperClass = helperClass;
-
+        
         // Initiate the logic
         this.init();
     }
@@ -29,6 +38,10 @@ export default class Vidage {
         if (this.detectTouchOrSmallScreen()) {
             this.element.pause();
             body.classList.remove(this.helperClass);
+            
+            if (this.deleteVideo) {
+                this.element.parentNode.removeChild(this.element);
+            }
         }
         else {
             this.element.play();
