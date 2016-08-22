@@ -1,11 +1,10 @@
-import gulp from 'gulp';
-import sequence from 'run-sequence';
+import gulp from 'gulp'
+import sequence from 'gulp-sequence'
 
 export function defaultTask (cb) {
     sequence(
-        'clean',
+        'scripts',
         'styles',
-        ['scripts'],
         cb
     )
 }

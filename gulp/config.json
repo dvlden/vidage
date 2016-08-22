@@ -20,23 +20,22 @@
                 "reduceIdents": false
             },
             "autoprefixer": {
-                "browsers": [
-                    "Chrome >= 35",
-                    "Firefox >= 31",
-                    "Edge >= 12",
-                    "Explorer >= 9",
-                    "iOS >= 8",
-                    "Safari >= 8",
-                    "Android 2.3",
-                    "Android >= 4",
-                    "Opera >= 12"
-                ]
+                "browsers": ["last 3 version"]
             },
             "extensions": ["scss"]
         },
 
         "scripts": {
             "path": "scripts",
+            "entry": "Vidage.js",
+            "browserify": {
+                "debug": true,
+                "standalone": "Vidage"
+            },
+            "babelify": {
+                "presets": ["es2015"],
+                "plugins": ["add-module-exports"]
+            },
             "extensions": ["js"]
         }
     }
