@@ -1,26 +1,38 @@
 import config from '../config'
-import handleErrors from '../helpers/handleErrors'
 
 import gulp from 'gulp'
+import util from 'gulp-util'
 import path from 'path'
 import newer from 'gulp-newer'
 import sass from 'gulp-sass'
 import nano from 'gulp-cssnano'
+import rename from 'gulp-rename'
 import prefixer from 'gulp-autoprefixer'
 
+const task = config.tasks.styles
+const addons = task.addons
 const paths = {
-    src: path.join(config.root.src, config.tasks.styles.path, `/**/*.${config.tasks.styles.extensions}`),
-    dest: path.join(config.root.dest, config.tasks.styles.path)
+    src: path.join(
+        config.root.src,
+        task.path,
+        `/**/*.{${task.extensions}}`
+    ),
+    dest: path.join(
+        config.root.dest,
+        task.path
+    )
 }
 
 export function stylesTask () {
     gulp.src(paths.src)
         .pipe(newer(paths.dest))
-        .pipe(sass(config.tasks.styles.sass))
-        .on('error', handleErrors)
-        .pipe(nano(config.tasks.styles.nano))
-        .pipe(prefixer(config.tasks.styles.autoprefixer))
-        .pipe(gulp.dest(`${paths.dest}`))
+        .pipe(sass(addons.sass))
+        .on('error', e => util.log(e))
+        .pipe(prefixer(addons.autoprefixer))
+        .pipe(gulp.dest(paths.dest))
+        .pipe(nano(addons.nano))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest(paths.dest))
 }
 
 gulp.task('styles', stylesTask)

@@ -1,5 +1,6 @@
-// Single dependency
-import _debounce from 'lodash/debounce';
+// Dependencies
+import debounce from 'debounce';
+import objectAssign from 'object-assign';
 
 // Moved out of the class some helper methods
 import validateSelector from './helpers/validate-selector';
@@ -8,23 +9,23 @@ import { restoreVideo, removeVideo } from './helpers/handle-video-selector';
 
 
 export default class Vidage {
-    constructor (selector, helperClass = 'Vidage--allow', removeVideo = false) {
+    // constructor (selector, helperClass = 'Vidage--allow', videoRemoval = false) {
+    constructor (selector, options = {}) {
+        const defaults = {
+            // Helper class for detection use through CSS
+            helperClass: 'Vidage--allow',
+            // Remove and Restore `<video>` selector if required
+            videoRemoval: false
+        };
+
+        // Combine defaults and possible options
+        this.options = objectAssign(defaults, options);
+
         // Store the name of the module
         this._name = this.constructor.name;
 
         // Validate given selector and handle errors
         this.element = validateSelector(selector, this._name);
-
-        // Helper class for detection use through CSS
-        this.helperClass = helperClass;
-
-        // Remove and Restore `<video>` selector if required
-        this.removeVideo = removeVideo;
-
-        // Helper to prevent running handler multiple times
-        // On `resize` it would run it multiple times
-        // On `canplay` it would run it, once video has started over after end
-        this.status = false;
 
         // Initiate the logic
         this.init();
@@ -33,9 +34,7 @@ export default class Vidage {
 
     init () {
         this.element.addEventListener('canplay', () => this.handler());
-        window.addEventListener('resize', _debounce(() => this.handler(), 250));
-        // `orientationchange` event - No longer required, will be removed in the future.
-        // window.addEventListener('orientationchange', () => this.handler());
+        window.addEventListener('resize', debounce(() => this.handler(), 250));
     }
 
 
@@ -43,29 +42,22 @@ export default class Vidage {
         const body = document.body;
 
         if (detectTouchOrSmallScreen()) {
-            if (!this.status) return;
-
             this.element.pause();
 
-            if (this.removeVideo) {
+            if (this.options.videoRemoval) {
                 removeVideo(this.element);
             }
 
-            body.classList.remove(this.helperClass);
-
-            this.status = false;
+            body.classList.remove(this.options.helperClass);
         }
         else {
-            if (this.status) return;
-
-            if (this.removeVideo) {
+            if (this.options.videoRemoval) {
                 restoreVideo(this.element);
             }
 
             this.element.play();
-            body.classList.add(this.helperClass);
 
-            this.status = true;
+            body.classList.add(this.options.helperClass);
         }
     }
 }
