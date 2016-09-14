@@ -1,4 +1,4 @@
-### Vidage
+## Vidage
 ###### Your solution to full-screen background video and image combined.
 ---
 
