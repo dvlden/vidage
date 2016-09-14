@@ -1,5 +1,5 @@
 ### Vidage
-###### Your solution to full-screen background video and image combined.
+##### Your solution to full-screen background video and image combined.
 ---
 
 **Vidage.js** will automatically handle your full-screen background video for you. It will hide and pause the video for touch devices and/or smaller width _(34em)_ and instead show the fallback image that you should provide. It determines whether to do that or not on the `canplay` and `resize` events.
@@ -16,14 +16,14 @@ Use source file written in SASS `src/styles/Vidage.scss` and change desired vari
 #### Install
 ---
 
-##### CDN
+###### CDN
 `https://cdnjs.com/libraries/Vidage`
 > Thanks to [PeterDaveHello](https://github.com/PeterDaveHello)
 
-##### Bower
+###### Bower
 `bower install vidage --save`
 
-##### NPM
+###### NPM
 `npm install vidage --save`
 
 #### How to use
@@ -47,7 +47,7 @@ _Works better and smoother in browsers that supports `.webm` format_
 </div>
 ```
 
-##### Add style in your `<head />` _(make sure that file path is correct)_
+###### Add style in your `<head />` _(make sure that file path is correct)_
 
 ```html
 <link href="styles/Vidage.css" rel="stylesheet" />
@@ -55,7 +55,7 @@ _Works better and smoother in browsers that supports `.webm` format_
 
 ##### And then use the script on one of the following ways _(make sure that file path is correct)_
 
-##### Regular way
+###### Regular way
 ```html
 <script src="scripts/Vidage.js"></script>
 <script>
@@ -63,7 +63,7 @@ _Works better and smoother in browsers that supports `.webm` format_
 </script>
 ```
 
-##### ES6 way
+###### ES6 way
 ```javascript
 import Vidage from './Vidage';
 
