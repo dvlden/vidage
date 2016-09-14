@@ -1,6 +1,6 @@
 {
   "name": "vidage",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Your solution to full-screen background video and image combined.",
   "main": "dest/scripts/Vidage.min.js",
   "scripts": {

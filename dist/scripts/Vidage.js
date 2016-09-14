@@ -181,7 +181,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Vidage = function () {
-    // constructor (selector, helperClass = 'Vidage--allow', videoRemoval = false) {
     function Vidage(selector) {
         var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 

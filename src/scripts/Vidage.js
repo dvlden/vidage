@@ -9,7 +9,6 @@ import { restoreVideo, removeVideo } from './helpers/handle-video-selector';
 
 
 export default class Vidage {
-    // constructor (selector, helperClass = 'Vidage--allow', videoRemoval = false) {
     constructor (selector, options = {}) {
         const defaults = {
             // Helper class for detection use through CSS
