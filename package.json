@@ -1,8 +1,8 @@
 {
   "name": "vidage",
-  "version": "0.2.6",
+  "version": "0.3.0",
   "description": "Your solution to full-screen background video and image combined.",
-  "main": "dest/scripts/Vidage.min.js",
+  "main": "dist/scripts/Vidage.min.js",
   "scripts": {
     "compile": "gulp",
     "prepublish": "npm run compile"
@@ -45,7 +45,6 @@
     "gulp-newer": "^1.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
-    "gulp-sequence": "^0.4.6",
     "gulp-strip-debug": "^1.1.0",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",

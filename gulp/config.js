@@ -15,15 +15,15 @@ export default {
                     precision: 4
                 },
 
-                'nano': {
-                    'discardComments': { removeAll: true },
-                    'discardUnused': false,
-                    'reduceIdents': false,
-                    'zindex': false
+                nano: {
+                    discardComments: { removeAll: true },
+                    discardUnused: false,
+                    reduceIdents: false,
+                    zindex: false
                 },
 
-                'prefixer': {
-                    'browsers': ['last 3 version']
+                prefixer: {
+                    browsers: ['last 3 version']
                 }
             }
         },

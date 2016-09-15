@@ -1,1 +1,1 @@
-import './gulp/index.js';
+import './gulp/index'

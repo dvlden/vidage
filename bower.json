@@ -3,7 +3,7 @@
   "description": "Your solution to full-screen background video and image combined.",
   "main": [
     "src/styles/Vidage.scss",
-    "dist/scripts/Vidage.js"
+    "dist/scripts/Vidage.min.js"
   ],
   "moduleType": [
     "amd",
