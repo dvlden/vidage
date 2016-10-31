@@ -6,16 +6,15 @@
     "dist/scripts/Vidage.min.js"
   ],
   "moduleType": [
-    "amd",
     "node",
     "es6"
   ],
   "authors": [
-    "dvL-den <n.dvLden@gmail.com> (http://dvL-den.net)"
+    "Nenad Novakovic <n.dvLden@gmail.com> (https://dvL-den.net)"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com:dvLden/Vidage.js.git"
+    "url": "git://github.com/dvLden/Vidage.git"
   },
   "license": "MIT",
   "keywords": [
@@ -25,7 +24,7 @@
     "image",
     "background"
   ],
-  "homepage": "https://github.com/dvLden/Vidage.js",
+  "homepage": "https://github.com/dvLden/Vidage",
   "ignore": [
     "**/.*",
     "node_modules",
