@@ -1,7 +1,9 @@
 ### Vidage
 ##### Your solution to full-screen background video and image combined.
 ---
-[![CDNJS](https://img.shields.io/cdnjs/v/Vidage.svg)](https://cdnjs.com/libraries/Vidage)
+[![CDNJS](https://img.shields.io/cdnjs/v/Vidage.svg?style=flat-square)](https://cdnjs.com/libraries/Vidage)
+[![Bower](https://img.shields.io/bower/v/vidage.svg?style=flat-square)](https://github.com/dvLden/Vidage)
+[![npm](https://img.shields.io/npm/v/vidage.svg?style=flat-square)](https://www.npmjs.com/package/vidage)
 
 **Vidage.js** will automatically handle your full-screen background video for you. It will hide and pause the video for touch devices and/or smaller width _(34em)_ and instead show the fallback image that you should provide. It determines whether to do that or not on the `canplay` and `resize` events.
 
