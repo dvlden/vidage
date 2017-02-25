@@ -17,6 +17,7 @@ $vdg-helper-class: 'Vidage--allow' !default;
 // List of backdrop settings
 $vdg-backdrop: (
     'bg-color': #383B3D,
+    // 'bg-gradient': linear-gradient(to top, #383B3D, #7D858B),
     // 'bg-image': $vdg-images-path + 'pattern.svg',
     'opacity': .2
 ) !default;
@@ -86,8 +87,16 @@ $vdg-backdrop: (
 
     &__backdrop {
         background: {
-            color: adjust-hue(darken(map-get($vdg-backdrop, 'bg-color'), 12%), 15%);
-            image: url(map-get($vdg-backdrop, 'bg-image'));
+            @if map-has-key($vdg-backdrop, 'bg-color') and not map-has-key($vdg-backdrop, 'bg-gradient') {
+                color: adjust-hue(darken(map-get($vdg-backdrop, 'bg-color'), 12%), 15%);
+            }
+
+            @if map-has-key($vdg-backdrop, 'bg-gradient') {
+                image: map-get($vdg-backdrop, 'bg-gradient')
+            }
+            @else if map-has-key($vdg-backdrop, 'bg-image') {
+                image: url(map-get($vdg-backdrop, 'bg-image'));
+            }
         }
         opacity: map-get($vdg-backdrop, 'opacity');
         @extend %vdg-background-size;

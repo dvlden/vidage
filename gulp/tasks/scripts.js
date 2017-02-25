@@ -33,7 +33,7 @@ export function scriptsTask () {
         .on('error', e => util.log(e))
         .pipe(source(task.entry))
         .pipe(buffer())
-        // .pipe(stripDebug())
+        .pipe(stripDebug())
         .pipe(gulp.dest(paths.dest))
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))

@@ -14,14 +14,13 @@ Take a look at this simple, yet - [beautiful example](https://dvLden.github.io/V
 #### Resources
 ---
 Background video, fallback image and pattern overlay – **that were used in example**, are not included for download.
-Use source file written in SASS `src/styles/Vidage.scss` and change desired variables or change specific parts of code that you may not need for an specific project. If you're not familiar with SASS and would like to edit CSS instead, you can do that too. Distribution files are found within `dist` folder and specifically full path to CSS is `dist/styles/Vidage.css`.
+Use source file written in Sass `src/styles/Vidage.scss` and change desired variables or change specific parts of code that you may not need for an specific project. If you're not familiar with SASS and would like to edit CSS instead, you can do that too. Distribution files are found within `dist` folder and specifically full path to CSS is `dist/styles/Vidage.css`.
 
 #### Install
 ---
 
 ###### CDN
 `https://cdnjs.com/libraries/Vidage`
-> Thanks to [PeterDaveHello](https://github.com/PeterDaveHello)
 
 ###### Bower
 `bower install vidage --save`

@@ -2,7 +2,7 @@
   "name": "vidage",
   "description": "Your solution to full-screen background video and image combined.",
   "main": [
-    "src/styles/Vidage.scss",
+    "dist/styles/Vidage.min.css",
     "dist/scripts/Vidage.min.js"
   ],
   "moduleType": [
