@@ -33,7 +33,7 @@ Use source file written in Sass `src/styles/Vidage.scss` and change desired vari
 
 ###### Add boilerplate/template in your HTML
 _You don't have to add both `.webm` and `.mp4` formats._
-_But from my personal experiance, leaving `.mp4` as fallback and using `.webm` primarily_
+_But from my personal experience, leaving `.mp4` as fallback and using `.webm` primarily_
 _Works better and smoother in browsers that supports `.webm` format_
 
 ```html
