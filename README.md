@@ -9,7 +9,7 @@
 
 #### Demo
 ---
-Take a look at this simple, yet - [beautiful example](https://dvLden.github.io/Vidage/).
+Take a look at this simple, yet - [beautiful example](https://nn-dvL.github.io/Vidage/).
 
 #### Resources
 ---
