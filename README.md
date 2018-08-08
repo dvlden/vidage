@@ -1,75 +1,73 @@
 ### Vidage
 ##### Your solution to full-screen background video and image combined.
 ---
-[![CDNJS](https://img.shields.io/cdnjs/v/Vidage.svg?style=flat-square)](https://cdnjs.com/libraries/Vidage)
-[![Bower](https://img.shields.io/bower/v/vidage.svg?style=flat-square)](https://github.com/dvLden/Vidage)
+[![CDNJS](https://img.shields.io/cdnjs/v/vidage.svg?style=flat-square)](https://cdnjs.com/libraries/vidage)
 [![npm](https://img.shields.io/npm/v/vidage.svg?style=flat-square)](https://www.npmjs.com/package/vidage)
 
-**Vidage.js** will automatically handle your full-screen background video for you. It will hide and pause the video for touch devices and/or smaller width _(34em)_ and instead show the fallback image that you should provide. It determines whether to do that or not on the `canplay` and `resize` events.
+**Vidage** will automatically handle your full-screen background video for you. It will hide and pause the video for touch devices and/or smaller width _(34em)_ and instead show the fallback image that you should provide. It determines whether to do that or not on the `canplay` and `resize` events.
 
 #### Demo
 ---
-Take a look at this simple, yet - [beautiful example](https://dvlden.github.io/Vidage/).
+Take a look at this simple, yet - [beautiful example](https://dvlden.github.io/vidage/).
 
 #### Resources
 ---
 Background video, fallback image and pattern overlay – **that were used in example**, are not included for download.
-Use source file written in Sass `src/styles/Vidage.scss` and change desired variables or change specific parts of code that you may not need for an specific project. If you're not familiar with SASS and would like to edit CSS instead, you can do that too. Distribution files are found within `dist` folder and specifically full path to CSS is `dist/styles/Vidage.css`.
+Use source file written in Sass `src/styles/vidage.scss` and change desired variables or change specific parts of code that you may not need for an specific project. If you're not familiar with SASS and would like to edit CSS instead, you can do that too. Distribution files are found within `dist` folder and specifically full path to CSS is `dist/vidage.css`.
 
 #### Install
 ---
 
 ###### CDN
-`https://cdnjs.com/libraries/Vidage`
-
-###### Bower
-`bower install vidage --save`
+`https://cdnjs.com/libraries/vidage`
 
 ###### NPM
-`npm install vidage --save`
+`npm i vidage`
 
 #### How to use
 ---
 
 ###### Add boilerplate/template in your HTML
-_You don't have to add both `.webm` and `.mp4` formats._
-_But from my personal experience, leaving `.mp4` as fallback and using `.webm` primarily_
-_Works better and smoother in browsers that supports `.webm` format_
+_You don't have to add both `.webm` and `.mp4` formats.
+But from my personal experience, leaving `.mp4` as fallback and using `.webm` primarily
+Works better and smoother in browsers that supports `.webm` format_
 
 ```html
-<div class="Vidage">
-    <div class="Vidage__image"></div>
-
-    <video id="VidageVideo" class="Vidage__video" preload="metadata" loop autoplay muted>
-        <source src="videos/bg.webm" type="video/webm">
-        <source src="videos/bg.mp4" type="video/mp4">
-    </video>
-
-    <div class="Vidage__backdrop"></div>
+<div class="vidage">
+  <video id="vidage-instance" class="vidage-video" preload="metadata" loop autoplay muted>
+    <source src="videos/bg.webm" type="video/webm">
+    <source src="videos/bg.mp4" type="video/mp4">
+  </video>
 </div>
 ```
 
 ###### Add style in your `<head />` _(make sure that file path is correct)_
 
 ```html
-<link href="styles/Vidage.css" rel="stylesheet" />
+<link href="dist/vidage.css" rel="stylesheet" />
 ```
+
+###### Modify cover for the video
+_Depending on how you use vidage's stylesheet, you may replace or override the 
+background-image for the cover, which is within `.vidage::before` selector.
+Alternatively, you may modify SCSS variable provided: `$vdg-fallback-image`
+and fill in path of your fallback/cover image. Example: `url(../images/fallback.jpg)`._
 
 ##### And then use the script on one of the following ways _(make sure that file path is correct)_
 
 ###### Regular way
 ```html
-<script src="scripts/Vidage.js"></script>
+<script src="dist/vidage.js"></script>
 <script>
-    new Vidage(selector);
+    new Vidage(selector, options);
 </script>
 ```
 
 ###### ES6 way
 ```javascript
-import Vidage from './Vidage';
+import Vidage from 'vidage';
 
-new Vidage(selector);
+new Vidage(selector, options);
 ```
 
 #### Options
@@ -78,7 +76,7 @@ Vidage accepts a few options that you can pass through the object as second argu
 
 |  #  |      Option    |    Default    |  Type  |
 | --- | -------------- | ------------- | ------ |
-|  1  |  helperClass   | Vidage--allow | string |
+|  1  |  helperClass   | vidage-ready  | string |
 |  2  |  videoRemoval  |     false     |  bool  |
 
 1. Provided class will help Vidage to determine when to hide/show the background video or background image and when to pause/play the video.
@@ -86,12 +84,12 @@ Vidage accepts a few options that you can pass through the object as second argu
 
 Example:
 ```javascript
-import Vidage from './Vidage';
+import Vidage from 'vidage';
 
 // Default options that you may change
 new Vidage(selector, {
-    helperClass: 'Vidage--allow',
-    videoRemoval: false
+  helperClass: 'vidage-ready',
+  videoRemoval: false
 });
 ```
 

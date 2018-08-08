@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <title>vidage</title>
+
+    <link rel="stylesheet" href="dist/vidage.css" />
+  </head>
+
+  <body>
+    <div class="vidage">
+      <video id="vidage" class="vidage-video" preload="metadata" loop autoplay muted>
+        <source src="https://dvlden.github.io/vidage/videos/bg.webm" type="video/webm">
+        <source src="https://dvlden.github.io/vidage/videos/bg.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <script src="dist/vidage.js"></script>
+    <script>
+      new Vidage('#vidage')
+    </script>
+  </body>
+</html>

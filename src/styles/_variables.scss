@@ -1,0 +1,15 @@
+$vdg-images-path: '../images/' !default;
+
+// $vdg-fallback-image: url($vdg-images-path + 'bg.jpg') !default;
+$vdg-fallback-image: url('https://dvlden.github.io/vidage/images/bg.jpg');
+
+$vdg-backdrop: () !default;
+$vdg-backdrop: map-merge(
+  (
+    'color': #383B3D,
+    'gradient': linear-gradient(to top, rgba(#383B3D, .8), rgba(#7D858B, .8)),
+    'image': url('https://dvlden.github.io/vidage/images/pattern.svg'),
+    'opacity': .5
+  ),
+  $vdg-backdrop
+);

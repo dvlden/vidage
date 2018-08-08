@@ -1,0 +1,11 @@
+.vidage-ready {
+  .vidage {
+    &::before { // this is cover
+      display: none;
+    }
+
+    &-video {
+      display: block;
+    }
+  }
+}

@@ -1,13 +1,10 @@
-# OS generated files #
-######################
-.DS_Store
-.DS_Store?
+# OS specific
 ._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
+.DS_Store
 Thumbs.db
 
-# Others #
-##########
-node_modules/
+# IDE/Code Editor
+.idea
+
+# Directories
+node_modules

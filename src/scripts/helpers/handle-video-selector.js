@@ -1,17 +1,22 @@
-let vdgContainer = null;
+let container = null
 
-export function restoreVideo (selector) {
-    if (!document.body.contains(selector)) {
-        vdgContainer.insertAdjacentElement('afterbegin', selector);
-    }
+const restoreVideo = selector => {
+  if (!document.body.contains(selector)) {
+    container.insertAdjacentElement('afterbegin', selector)
+  }
 }
 
-export function removeVideo (selector) {
-    if (vdgContainer === null) {
-        vdgContainer = selector.parentNode;
-    }
+const removeVideo = selector => {
+  if (container === null) {
+    container = selector.parentNode
+  }
 
-    if (document.body.contains(selector)) {
-        vdgContainer.removeChild(selector);
-    }
+  if (document.body.contains(selector)) {
+    container.removeChild(selector)
+  }
+}
+
+export {
+  restoreVideo,
+  removeVideo
 }

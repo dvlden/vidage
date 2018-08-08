@@ -1,3 +1,13 @@
 {
-  "presets": ["es2015"]
+  "exclude": "node_modules/**",
+  "presets": [
+    [
+      "@babel/preset-env", {
+        "modules": false,
+        "targets": {
+          "browsers": ["last 1 major version"]
+        }
+      }
+    ]
+  ]
 }
