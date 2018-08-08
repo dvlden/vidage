@@ -1,103 +1,117 @@
-### Vidage
-##### Your solution to full-screen background video and image combined.
----
-[![CDNJS](https://img.shields.io/cdnjs/v/vidage.svg?style=flat-square)](https://cdnjs.com/libraries/vidage)
-[![npm](https://img.shields.io/npm/v/vidage.svg?style=flat-square)](https://www.npmjs.com/package/vidage)
+# Vidage
 
-**Vidage** will automatically handle your full-screen background video for you. It will hide and pause the video for touch devices and/or smaller width _(34em)_ and instead show the fallback image that you should provide. It determines whether to do that or not on the `canplay` and `resize` events.
+This JS module will treat video as a background. It will determine when to hide/show & pause/play the video.
+Touch devices and/or smaller devices with width of **34em** will display image provided as fallback.
 
-#### Demo
----
-Take a look at this simple, yet - [beautiful example](https://dvlden.github.io/vidage/).
 
-#### Resources
----
-Background video, fallback image and pattern overlay – **that were used in example**, are not included for download.
-Use source file written in Sass `src/styles/vidage.scss` and change desired variables or change specific parts of code that you may not need for an specific project. If you're not familiar with SASS and would like to edit CSS instead, you can do that too. Distribution files are found within `dist` folder and specifically full path to CSS is `dist/vidage.css`.
+## Installation (pick one)
 
-#### Install
----
+1. [Download latest release](https://github.com/dvlden/vidage/releases)
+2. `git clone https://github.com/dvlden/vidage.git`
+3. `yarn add vidage`
+4. `npm i vidage`
+5. [Use CDN](https://cdnjs.com/libraries/vidage)
 
-###### CDN
-`https://cdnjs.com/libraries/vidage`
 
-###### NPM
-`npm i vidage`
+## Usage
 
-#### How to use
----
+Preferred way...
 
-###### Add boilerplate/template in your HTML
-_You don't have to add both `.webm` and `.mp4` formats.
-But from my personal experience, leaving `.mp4` as fallback and using `.webm` primarily
-Works better and smoother in browsers that supports `.webm` format_
+> Add base structure and replace video source paths
 
 ```html
 <div class="vidage">
-  <video id="vidage-instance" class="vidage-video" preload="metadata" loop autoplay muted>
+  <video id="vidage" class="vidage-video" preload="metadata" loop autoplay muted>
     <source src="videos/bg.webm" type="video/webm">
     <source src="videos/bg.mp4" type="video/mp4">
   </video>
 </div>
 ```
 
-###### Add style in your `<head />` _(make sure that file path is correct)_
+> Setup and import required styles
 
-```html
-<link href="dist/vidage.css" rel="stylesheet" />
+```scss
+// set the fallback-cover image
+$vdg-fallback-image: url('../images/fallback.jpg');
+
+// import package
+@import '~vidage/src/styles/vidage';
 ```
 
-###### Modify cover for the video
-_Depending on how you use vidage's stylesheet, you may replace or override the 
-background-image for the cover, which is within `.vidage::before` selector.
-Alternatively, you may modify SCSS variable provided: `$vdg-fallback-image`
-and fill in path of your fallback/cover image. Example: `url(../images/fallback.jpg)`._
+> Import the JS module and create new instance
 
-##### And then use the script on one of the following ways _(make sure that file path is correct)_
+```js
+import Vidage from 'vidage'
 
-###### Regular way
-```html
-<script src="dist/vidage.js"></script>
-<script>
-    new Vidage(selector, options);
-</script>
+new Vidage('#vidage')
 ```
 
-###### ES6 way
-```javascript
-import Vidage from 'vidage';
-
-new Vidage(selector, options);
-```
-
-#### Options
 ---
-Vidage accepts a few options that you can pass through the object as second argument.
 
-|  #  |      Option    |    Default    |  Type  |
-| --- | -------------- | ------------- | ------ |
-|  1  |  helperClass   | vidage-ready  | string |
-|  2  |  videoRemoval  |     false     |  bool  |
+Old fashioned way...
 
-1. Provided class will help Vidage to determine when to hide/show the background video or background image and when to pause/play the video.
-2. Forcefully removes the whole video element from the DOM and when necessery (e.g. on resize if larger width detected) it will append the removed video again.
+> Below you will find complete `html` example...
 
-Example:
-```javascript
-import Vidage from 'vidage';
+```html
+<!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Document</title>
 
-// Default options that you may change
-new Vidage(selector, {
-  helperClass: 'vidage-ready',
-  videoRemoval: false
-});
+    <link rel="stylesheet" href="dist/vidage.css">
+    <style>
+      /* Override the cover image. Set the path to the actual image... */
+      .vidage::before {
+        background-image: url('images/fallback.jpg');
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="vidage">
+      <video id="vidage" class="vidage-video" preload="metadata" loop autoplay muted>
+        <source src="videos/bg.webm" type="video/webm">
+        <source src="videos/bg.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- START: Rest of your site content -->
+    ...
+    <!-- END: Rest of your site content -->
+
+    <script src="dist/vidage.js"></script>
+    <script>
+      new Vidage('#vidage')
+    </script>
+  </body>
+</html>
 ```
 
-**Tested manually through multiple platforms and browsers!**
+## JS Arguments
 
-| <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_128x128.png" width="48" height="48" alt="Chrome"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_128x128.png" width="48" height="48" alt="Firefox"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_128x128.png" width="48" height="48" alt="Safari"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_128x128.png" width="48" height="48" alt="Opera"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_128x128.png" width="48" height="48" alt="Edge"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/yandex/yandex_128x128.png" width="48" height="48" alt="Yandex"> | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_128x128.png" width="48" height="48" alt="Internet Explorer"> |
-|---|---|---|---|---|---|---|
-| 15+ ✔ | 20+ ✔ | 5.1+ ✔ | 15+ ✔ | 12+ ✔ | 14.12+ ✔ | 10+ ✔ |
+Instance of Vidage accepts two arguments. First argument is 
+the actual selector of the video, that instance will control.
+Second argument is the actual object for the options.
 
-> <img src="https://avatars0.githubusercontent.com/u/1119453?v=3&s=200" width="38" height="38">
-_Thanks to [BrowserStack](https://www.browserstack.com/) for supporting this open-source project by allowing me to test Vidage!_
+| Argument   | Required Type |
+| ---------- | ------------- |
+| `selector` | `string/node` |
+| `options`  | `object`      | 
+
+| Key            | Default Value  | Required Type |
+| -------------- | -------------- | ------------- |
+| `helperClass`  | `vidage-ready` | `string`      |
+| `videoRemoval` | `false`        | `bool`        |
+
+
+## SCSS Variables
+
+| Variable              | Default Value                |
+| --------------------- | ---------------------------- |
+| `$vdg-fallback-image` | `url('../images/cover.jpg')` |
+
+
+## Browser Support
+
+Yet to be determined. All modern browsers should be alright.
