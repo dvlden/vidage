@@ -10,7 +10,13 @@ Touch devices and/or smaller devices with width of **34em** will display image p
 2. `git clone https://github.com/dvlden/vidage.git`
 3. `yarn add vidage`
 4. `npm i vidage`
-5. [Use CDN](https://cdnjs.com/libraries/vidage)
+
+
+## CDN (pick one)
+
+1. [JSDelivr](https://www.jsdelivr.com/package/npm/vidage?path=dist)
+2. [UNPKG](https://unpkg.com/vidage@0.5.1/dist/)
+3. [~~CDNJS~~](https://cdnjs.com/libraries/vidage) (currently broken)
 
 
 ## Usage
