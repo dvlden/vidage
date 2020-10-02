@@ -1,14 +1,14 @@
 import '../styles/vidage.scss'
-import debounce from 'lodash-es/debounce'
-import assign from 'lodash-es/assign'
-import validateSelector from './helpers/validate-selector'
+
+import debounce from 'debounce'
+import defaults from './helpers/defaults'
 import detectTouchOrSmallScreen from './helpers/feature-detect'
 import { restoreVideo, removeVideo } from './helpers/handle-video-selector'
-import defaults from './helpers/defaults'
+import validateSelector from './helpers/validate-selector'
 
 export default class Vidage {
   constructor (selector, options = {}) {
-    this.options = assign(defaults, options)
+    this.options = Object.assign(defaults, options)
     this._name = this.constructor.name
     this.element = validateSelector(selector, this._name)
 
@@ -26,8 +26,8 @@ export default class Vidage {
     }
 
     window.addEventListener('resize', debounce(() => {
-      this.handler(), 250
-    }))
+      this.handler()
+    }, 250))
   }
 
   handler () {

@@ -1,16 +1,23 @@
-import babel from 'rollup-plugin-babel'
-import resolve from 'rollup-plugin-node-resolve'
+import autoprefixer from 'autoprefixer'
+import babel from '@rollup/plugin-babel'
 import postcss from 'rollup-plugin-postcss'
-import { uglify } from 'rollup-plugin-uglify'
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import { terser } from 'rollup-plugin-terser'
 
 const helpers = {
   package: require('./package.json'),
   isProduction: () => {
     return process.env.MODE === 'production'
   },
-  uglifyInProduction: () => {
-    return helpers.isProduction() && uglify()
-  }
+  minifyInProduction: () => {
+    return helpers.isProduction() && terser()
+  },
+  libName: (name) => (
+    name.replace(/@.*\//, '').split('-').map(word =>
+      word.charAt(0).toUpperCase() + word.slice(1)
+    ).join('')
+  )
 }
 
 export default {
@@ -22,19 +29,20 @@ export default {
       extensions: ['.scss'],
       minimize: helpers.isProduction(),
       plugins: [
-        require('autoprefixer')()
+        autoprefixer()
       ]
     }),
+    babel({ babelHelpers: 'runtime' }),
     resolve(),
-    babel(),
-    helpers.uglifyInProduction()
+    commonjs(),
+    helpers.minifyInProduction()
   ],
 
   output: [
     {
       file: helpers.package.main,
       format: 'umd',
-      name: 'Vidage'
+      name: helpers.libName(helpers.package.name)
     }
   ]
 }
