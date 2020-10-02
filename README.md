@@ -15,7 +15,7 @@ Touch devices and/or smaller devices with width of **34em** will display image p
 ## CDN (pick one)
 
 1. [JSDelivr](https://www.jsdelivr.com/package/npm/vidage?path=dist)
-2. [UNPKG](https://unpkg.com/vidage@0.5.1/dist/)
+2. [UNPKG](https://unpkg.com/vidage@latest/dist/)
 
 
 ## Usage
