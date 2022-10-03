@@ -1,7 +1,7 @@
 {
   "name": "vidage",
   "description": "Set video as the background of your website. Fallbacks to the image, when required.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "dist/vidage.js",
   "files": [
