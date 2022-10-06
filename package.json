@@ -1,5 +1,5 @@
 {
-  "name": "vidage",
+  "name": "@dvlden/vidage",
   "description": "Set video as the background of your website. Fallbacks to the image, when required.",
   "version": "1.0.1",
   "license": "MIT",
@@ -12,7 +12,8 @@
   "bugs": "https://github.com/dvlden/vidage/issues",
   "scripts": {
     "dev": "rollup -c -w -m inline --environment MODE:dev",
-    "build": "rollup -c --environment MODE:production"
+    "build": "rollup -c --environment MODE:production",
+    "prepare": "pnpm run build"
   },
   "repository": {
     "type": "git",

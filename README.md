@@ -6,10 +6,9 @@ Touch devices and/or smaller devices with width of **34em** will display image p
 
 ## Installation (pick one)
 
-1. [Download latest release](https://github.com/dvlden/vidage/releases)
-2. `git clone https://github.com/dvlden/vidage.git`
-3. `yarn add vidage`
-4. `npm i vidage`
+- `npm i @dvlden/vidage`
+- `pnpm i @dvlden/vidage`
+- `yarn add @dvlden/vidage`
 
 
 ## CDN (pick one)
